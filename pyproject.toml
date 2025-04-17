@@ -1,3 +1,27 @@
+[tool.poetry]
+name = "internet-testing-with-playwright"
+version = "0.1.0"
+description = "Internet testing framework pytest, playwright"
+authors = ["Arlinda Haliti <arlindahaliti55@gmail.com>"]
+packages = [{ include = "playwright_python" }]
+readme = "README.md"
+keywords = ["internet", "playwright", "automation", "testing", "web"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pytest = "8.2.2"
+pytest-base-url = "2.1.0"
+pytest-playwright = "0.5.0"
+playwright = "1.44.0"
+docker = "^7.1.0"
+mailhog = "^0.1.1"
+requests = "2.32.3"
+
+[tool.poetry.dev-dependencies]
+black = "24.4.2"
+isort = "5.13.2"
+pre-commit = "3.7.1"
+
 [tool.pytest.ini_options]
 addopts = [
   "-ra",
@@ -5,7 +29,7 @@ addopts = [
   "--browser-channel=chrome",
   "--headed",
   "--video=retain-on-failure",
-  "--tracing=retain-on-failure",
+  "--tracing=retain-on-failure"
 ]
 base_url = "https://the-internet.herokuapp.com/"
 log_cli = true
