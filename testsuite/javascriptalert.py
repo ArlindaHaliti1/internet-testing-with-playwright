@@ -3,9 +3,9 @@ from pages.javascriptalert_page import JavascriptAlertsPage
 
 @pytest.fixture
 def javascript_alerts_page(page):
-    # Initialize the JavascriptAlertsPage with the page object
+   
     jap = JavascriptAlertsPage(page)
-    jap.visit()  # Visit the page
+    jap.visit() 
     return jap
 
 def test_click_js_alert_and_assert(javascript_alerts_page):

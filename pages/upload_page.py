@@ -10,7 +10,7 @@ class FileUploadPage:
         self.uploaded_file_name_selector = '#uploaded-files'
 
     def visit(self):
-        self.page.goto("/upload")  # Use the full URL
+        self.page.goto("/upload")  
 
     def upload_file(self, file_name: str):
         self.page.locator(self.file_input_selector).set_input_files(file_name)

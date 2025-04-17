@@ -1,5 +1,5 @@
 import pytest
-from pages.newwindow_page import WindowsPage  # Assuming you named the class file `windows_page.py`
+from pages.newwindow_page import WindowsPage  
 
 @pytest.fixture
 def windows_page(page):

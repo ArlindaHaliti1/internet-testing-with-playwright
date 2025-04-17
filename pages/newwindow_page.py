@@ -15,7 +15,6 @@ class WindowsPage:
         assert href == '/windows/new', f"Expected href '/windows/new' but got {href}"
         assert target == '_blank', f"Expected target '_blank' but got {target}"
 
-        # Change target to _self before clicking
         link.evaluate('a => a.setAttribute("target", "_self")')
         link.click()
 
