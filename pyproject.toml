@@ -1,0 +1,17 @@
+[tool.pytest.ini_options]
+addopts = [
+  "-ra",
+  "--color=yes",
+  "--browser-channel=chrome",
+  "--headed",
+  "--video=retain-on-failure",
+  "--tracing=retain-on-failure",
+]
+base_url = "https://the-internet.herokuapp.com/"
+log_cli = true
+log_cli_date_format = "%d-%m-%Y %H:%M:%S"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_level = "INFO"
+markers = [
+  "web: Web specific tests"
+]
