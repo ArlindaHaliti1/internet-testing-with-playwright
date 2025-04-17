@@ -3,7 +3,6 @@ name = "internet-testing-with-playwright"
 version = "0.1.0"
 description = "Internet testing framework pytest, playwright"
 authors = ["Arlinda Haliti <arlindahaliti55@gmail.com>"]
-packages = [{ include = "playwright_python" }]
 readme = "README.md"
 keywords = ["internet", "playwright", "automation", "testing", "web"]
 
