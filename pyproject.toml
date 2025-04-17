@@ -17,7 +17,7 @@ docker = "^7.1.0"
 mailhog = "^0.1.1"
 requests = "2.32.3"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 black = "24.4.2"
 isort = "5.13.2"
 pre-commit = "3.7.1"
