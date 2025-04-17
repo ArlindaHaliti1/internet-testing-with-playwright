@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "internet-testing-with-playwright"
+name = "internet-testing-with-playwright/testuite"
 version = "0.1.0"
 description = "Internet testing framework pytest, playwright"
 authors = ["Arlinda Haliti <arlindahaliti55@gmail.com>"]
