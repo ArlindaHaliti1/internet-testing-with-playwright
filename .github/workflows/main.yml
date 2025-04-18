@@ -1,39 +1,36 @@
-name: Run Tests with Pytest and Playwright
-
+name: Playwright Tests
 on:
   push:
-    branches:
-      - main
+    branches: [ main, master ]
   pull_request:
-    branches:
-      - main
-
+    branches: [ main, master ]
 jobs:
   test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
-
     steps:
-    - name: Check out code
-      uses: actions/checkout@v3
-
+    - uses: actions/checkout@v4
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
-
+        python-version: '3.13.2'
     - name: Install Poetry
       run: |
         curl -sSL https://install.python-poetry.org | python3 -
         echo "$HOME/.local/bin" >> $GITHUB_PATH
-
     - name: Install dependencies
       run: |
-        poetry install
-
-    - name: Set up Playwright
+        poetry install --no-root
+    - name: Ensure browsers are installed
+      run: python -m playwright install --with-deps
+    - name: Run Pre-Commit Hooks
       run: |
-        python -m playwright install
-
-    - name: Run tests
-      run: |
-        pytest --maxfail=1 --disable-warnings -q
+        pre-commit install
+        pre-commit run --all-files
+    - name: Run your tests
+      run: pytest --tracing=retain-on-failure
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: playwright-traces
+        path: test-results/
